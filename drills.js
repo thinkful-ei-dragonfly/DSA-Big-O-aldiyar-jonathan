@@ -167,3 +167,41 @@ O(1)
 
 // Checks if the inputed number is a prime number
 //
+_____________________________________________________________
+
+11.
+ 
+// //1 Tower
+
+// A -> C
+
+// //2 Towers
+
+// A -> B
+// A -> C
+// B -> C
+
+// //3 Towers
+
+// A -> C
+// A -> B
+// C -> B
+// A -> C
+// B -> A
+// B -> C
+// A -> C
+
+
+function TOH(num, source, dest, temp){
+  if(num === 1){
+    console.log(`Moving disc from ${source} to ${dest}`)
+    return
+  }
+  else { 
+  TOH(num-1, source, temp, dest)
+  TOH(1, source, dest, temp)
+  TOH(num-1, temp, dest, source)
+  }
+}
+
+TOH(4, 'A', 'C', 'B')
